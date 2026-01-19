@@ -1,0 +1,36 @@
+# Core Web3 Libraries
+web3>=6.15.0
+# Note: eth-abi and eth-utils are automatically installed as web3 dependencies
+
+# Graph Processing
+networkx>=3.2
+matplotlib>=3.8.0
+# Note: numpy is automatically installed as matplotlib dependency
+
+# LLM & AI
+langchain>=0.1.0
+langchain-anthropic>=0.1.0
+langchain-openai>=0.1.0  # Optional, alternative LLM provider (OpenAI)
+langchain-core>=0.1.0  # Core LangChain components (messages, etc.)
+anthropic>=0.25.0
+openai>=1.12.0  # Optional, alternative LLM provider
+
+# Configuration & Utils
+python-dotenv>=1.0.0
+requests>=2.31.0  # Used for calling 4byte.directory API to resolve function signatures
+
+# Logging
+loguru>=0.7.0
+
+# Development Dependencies (Optional)
+# Uncomment the following sections if you need them for development
+
+# Testing
+# pytest>=7.4.0
+# pytest-asyncio>=0.21.0
+# pytest-cov>=4.1.0
+
+# Code Quality
+# black>=23.12.0
+# flake8>=7.0.0
+# mypy>=1.8.0

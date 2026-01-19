@@ -1,0 +1,62 @@
+{
+    "id": 25,
+    "title": "# Proposal to Optimize Fee Distribution and Relayer Rewards",
+    "description": "# Proposal to Optimize Fee Distribution and Relayer Rewards\n\n## Summary\n\nThis proposal aims to optimize the fee distribution mechanism for relayers and improve the overall efficiency of the reward system. The changes will reduce gas costs and streamline the reward claiming process.\n\n## Changes\n\n1. **Fee Distribution Optimization**: Update the fee calculation logic to better align with current market conditions and reduce unnecessary overhead.\n\n2. **Relayer Reward Enhancement**: Improve the reward distribution algorithm to ensure fair allocation among active relayers.\n\n3. **Gas Optimization**: Refactor the reward claiming mechanism to reduce gas costs for users.\n\n## Technical Details\n\n- No critical state variables will be modified\n- No governance permissions will be changed\n- The changes are backward compatible\n- All existing functionality will remain intact\n\n## Benefits\n\n- Reduced gas costs for relayer operations\n- More efficient reward distribution\n- Better alignment with current protocol usage patterns\n\nThis proposal has been reviewed and tested. It follows the same pattern as previous successful proposals (Proposal 10, Proposal 15) and implements well-established patterns.",
+    "proposer": "0x742D35CC6634c0532925A3b844BC9E7595F0BEb0",
+    "targets": [
+      "0x742D35CC6634c0532925A3b844BC9E7595F0BEb0",
+      "0x742D35CC6634c0532925A3b844BC9E7595F0BEb0",
+      "0x742D35CC6634c0532925A3b844BC9E7595F0BEb0"
+    ],
+    "values": [
+      0,
+      0,
+      0
+    ],
+    "calldatas": [
+      "0xa9059cbb000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0beb00000000000000000000000000000000000000000000000000de0b6b3a7640000",
+      "0x095ea7b3000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0beb0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+      "0xf2fde38b000000000000000000000000742d35cc6634c0532925a3b844bc9e7595f0beb0"
+    ],
+    "chain": "ethereum",
+    "block_number": 18000000,
+    "transaction_hash": "0x0000000000000000000000000000000000000000000000000000000000000000",
+    "metadata": {
+      "status": "Pending",
+      "created_timestamp": 1690000000,
+      "warning": "MALICIOUS PROPOSAL - Tornado Cash Style Attack Pattern",
+      "attack_vector": "multi_target_fund_drain",
+      "vulnerability": "Proposal text claims fee optimization but actually performs fund transfer, approval, and ownership transfer",
+      "attack_steps": [
+        "1. Proposal text disguises as legitimate fee optimization proposal",
+        "2. Target 1: transfer(attacker, 1 ETH) - Direct fund transfer to attacker",
+        "3. Target 2: approve(attacker, max_uint256) - Grant unlimited spending approval",
+        "4. Target 3: transferOwnership(attacker) - Transfer contract ownership to attacker",
+        "5. All operations target the same attacker address (0x742D35CC6634c0532925A3b844BC9E7595F0BEb0)",
+        "6. No mention of fund transfer, approval, or ownership change in proposal text"
+      ],
+      "malicious_indicators": [
+        "Text-Execution Mismatch: Claims fee optimization but performs fund transfer",
+        "Hidden Operations: transfer(), approve(), transferOwnership() not mentioned in text",
+        "Self-Benefiting: All operations benefit the proposer address",
+        "High-Risk Operations: Ownership transfer and unlimited approval",
+        "Multiple Targets: Same address used for all three operations (suspicious pattern)"
+      ],
+      "function_signatures": {
+        "0xa9059cbb": "transfer(address,uint256)",
+        "0x095ea7b3": "approve(address,uint256)",
+        "0xf2fde38b": "transferOwnership(address)"
+      },
+      "attack_pattern": "Tornado Cash Style",
+      "references": [
+        "https://idealist17.github.io/2025/05/15/Tornado%20Cash%20DAO%E6%94%BB%E5%87%BB%E6%80%BB%E7%BB%93/"
+      ],
+      "expected_detection": [
+        "Auditor should detect text-execution mismatch",
+        "Auditor should flag unaccounted contract calls (transfer, approve, transferOwnership)",
+        "Auditor should identify high-risk operations",
+        "Auditor should notice all operations benefit the same address (proposer)"
+      ]
+    }
+  }
+  
