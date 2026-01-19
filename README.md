@@ -1,4 +1,4 @@
-# 🔍 DAO Governance Security Analysis System
+# 🔍 DAO Governance Proposal Audit System
 
 Automated detection of malicious code in DAO proposals - Identifies potential security risks by comparing proposal text intent with on-chain execution traces.
 
